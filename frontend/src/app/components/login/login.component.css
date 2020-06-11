@@ -1,0 +1,9 @@
+.btn.btn-orange {
+    background: #ff6600;
+    color: white;
+}
+
+.mat-tab-body-content {
+    height: 100%;
+    overflow: none !important;
+}

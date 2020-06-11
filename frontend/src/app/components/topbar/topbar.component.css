@@ -1,0 +1,22 @@
+ul.ulLineal li {
+    list-style: none;
+    float: left;
+    margin-right: 0px;
+}
+
+ul.ulLineal li i {
+    color: #ff6600;
+}
+
+.input-group.mb-3.search {
+    margin: 20px auto;
+}
+
+button:focus {
+    outline: 0px;
+}
+
+.btn.btn-orange {
+    background: #ff6600;
+    color: rgb(255, 255, 255);
+}

@@ -1,0 +1,13 @@
+a.btn.btn-orange {
+    background: #ff6600;
+    color: white;
+}
+
+.card {
+    margin: 46px;
+}
+
+input.input-text.qty.text {
+    width: 40px;
+    margin: 0 5px 0 0;
+}

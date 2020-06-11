@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;" *ngFor="let pro of Productos; index as i">
+                <img src="{{pro.img}}" class="card-img-top" alt="...">
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div *ngFor="let pro of Productos; index as i">
+                <div class="card-body">
+                    <h5 class="card-title">{{pro.titulo}}</h5>
+                    <p class="card-text">{{pro.precio}}</p>
+                    <p class="card-text">{{pro.description}}</p>
+                    <input type="number" class="input-text qty text" min="1" max="" value="1" title="Cantidad" size="4" placeholder="" inputmode="numeric">
+                    <a class="btn btn-orange" (click)="idProduct(pro.id)">Comprar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

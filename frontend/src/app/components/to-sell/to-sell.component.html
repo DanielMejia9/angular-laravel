@@ -1,0 +1,82 @@
+<div class="container">
+    <br><br>
+    <div class="row">
+        <h1 class="mx-auto"><span>Publica tu anuncio</span></h1>
+    </div>
+    <br><br>
+    <form #frmPublicar="ngForm" (ngSubmit)="onSubmit(frmPublicar)">
+        <div class="row">
+            <div class="col-md-4">
+                <label for="">Titulo*</label>
+                <input type="text" class="form-control" name="title" ngModel required>
+            </div>
+            <div class="col-md-4">
+                <label for="">Precio</label>
+                <input type="text" class="form-control" name="price" ngModel required>
+            </div>
+            <div class="col-md-4">
+                <label for="">Nombre del Arriendador</label>
+                <input type="text" class="form-control" name="name_owner" ngModel required>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-4">
+                <label for="">N° Telefónico</label>
+                <input type="text" class="form-control" name="number_phone" ngModel required>
+            </div>
+            <div class="col-md-4">
+                <label for="">N° Telefónico Opcional</label>
+                <input type="text" class="form-control" name="number_phone_optional" ngModel required>
+            </div>
+            <div class="col-md-4">
+                <label for="">Dirección</label>
+                <input type="text" class="form-control" name="address" ngModel required>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-4">
+                <label for="">Baños</label>
+                <input type="number" class="form-control" name="bathroom" ngModel required>
+            </div>
+            <div class="col-md-4">
+                <label for="">Cuartos</label>
+                <input type="number" class="form-control" name="bedroom" ngModel required>
+            </div>
+            <div class="col-md-4">
+                <label for="">Estacionamiento</label>
+                <input type="number" class="form-control" name="parking" ngModel required>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-4">
+                <label for="">Sala</label>
+                <input type="number" class="form-control" name="room" ngModel required>
+            </div>
+            <div class="col-md-4">
+                <label for="">Cocina</label>
+                <input type="number" class="form-control" name="kitchen" ngModel required>
+            </div>
+            <div class="col-md-4">
+                <label for="">Comedor</label>
+                <input type="number" class="form-control" name="dinning_room" ngModel required>
+            </div>
+        </div>
+        <br>
+        <ngx-image-uploader [options]="options" (upload)="onUpload($event)"></ngx-image-uploader>
+
+        <br>
+        <div class="form-group">
+            <input type="file" name="images_1" ngModel>
+        </div>
+        <div class="row">
+            <div class="col-md-4 offset-md-4">
+                <button mat-raised-button class="form-control form-control-lg btn btn-orange"
+                    type="submit">Publicar</button>
+            </div>
+        </div>
+    </form>
+
+</div>
