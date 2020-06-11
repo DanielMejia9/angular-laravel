@@ -16,10 +16,10 @@ export class AuthenticationService {
   private token : string;
   private expires : string;
 
-  constructor( private httpClient : HttpClient) { }
+  constructor( private http : HttpClient) { }
   
    register(register: RegisterI): Observable<JwtResponseI> {
-    return this.httpClient.post<JwtResponseI>(`${this.AUTH_SERVER}/register`,
+    return this.http.post<JwtResponseI>(`${this.AUTH_SERVER}/register`,
       register).pipe(tap(
         (res: JwtResponseI) => {
           if (res) {
@@ -32,7 +32,7 @@ export class AuthenticationService {
   }
 
   login(user: UserI): Observable<JwtResponseI> {
-    return this.httpClient.post<JwtResponseI>(`${this.AUTH_SERVER}/login`,
+    return this.http.post<JwtResponseI>(`${this.AUTH_SERVER}/login`,
       user).pipe(tap(
         (res: JwtResponseI) => {
           if (res) {

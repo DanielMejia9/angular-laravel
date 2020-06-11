@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ImageUploaderOptions, FileQueueObject } from 'ngx-image-uploader';
+//import { ImageUploaderOptions, FileQueueObject } from 'ngx-image-uploader';
 import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
+import { PublishArticleService } from '../../services/publish-article.service';
+
 
 @Component({
   selector: 'app-to-sell',
@@ -9,31 +11,15 @@ import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 
 })
 export class ToSellComponent implements OnInit {
 
-  constructor() { }
+  constructor(private publish : PublishArticleService) { }
 
   ngOnInit() {
   }
 
-/* options: ImageUploaderOptions = {
-    thumbnailHeight: 150,
-    thumbnailWidth: 150,
-    uploadUrl: 'http://127.0.0.1:8000/api/auth/addImages',
-    allowedImageTypes: ['image/png', 'image/jpeg'],
-    maxImageSize: 3
-};
-
-onUpload(file: FileQueueObject) {
-  console.log(file);
-}*/
-
-
-  /*const formData = new FormData();
-    formData.append('file', this.fileData);
-    this.http.post('url/to/your/api', formData)
-      .subscribe(res => {
-        console.log(res);
-        alert('SUCCESS !!');
-      })*/
+  
+      onSubmit(form){
+        console.log(form.value);
+      }
 
       public files: NgxFileDropEntry[] = [];
  
@@ -47,23 +33,9 @@ onUpload(file: FileQueueObject) {
             fileEntry.file((file: File) => {
      
               // Here you can access the real file
-              console.log(droppedFile.relativePath, file);
-     
-              /**
-              // You could upload it like this:
-              const formData = new FormData()
-              formData.append('logo', file, relativePath)
-     
-              // Headers
-              const headers = new HttpHeaders({
-                'security-token': 'mytoken'
-              })
-     
-              this.http.post('https://mybackend.com/api/upload/sanitize-and-save-logo', formData, { headers: headers, responseType: 'blob' })
-              .subscribe(data => {
-                // Sanitized logo returned from backend
-              })
-              **/
+              //console.log(droppedFile.relativePath, file);
+              
+              this.publish.addImage(file);
      
             });
           } else {
@@ -75,10 +47,10 @@ onUpload(file: FileQueueObject) {
       }
      
       public fileOver(event){
-        console.log(event);
+        //console.log(event);
       }
      
       public fileLeave(event){
-        console.log(event);
+        //console.log(event);
       }
 }

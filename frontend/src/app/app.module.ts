@@ -19,7 +19,6 @@ import { AuthenticationGuard } from './services/authentication.guard';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthenticationService } from './services/authentication.service';
 import { ToSellComponent } from './components/to-sell/to-sell.component';
-import { ImageUploaderModule } from 'ngx-image-uploader';
 import { NgxFileDropModule  } from 'ngx-file-drop';
 
 const routes: Routes = [
@@ -53,7 +52,6 @@ const routes: Routes = [
     MatTabsModule,
     MatButtonModule,
     HttpClientModule,
-    ImageUploaderModule,
     NgxFileDropModule,
   ],
   providers:[AuthenticationService],
