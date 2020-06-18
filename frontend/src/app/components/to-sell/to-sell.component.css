@@ -2,3 +2,102 @@
     background: #ff6600;
     color: white;
 }
+
+.ngx-file-drop__drop-zone[_ngcontent-kok-c93] {
+    height: 100px !important;
+    margin: auto !important;
+    border: 1px dotted #313131 !important;
+    border-radius: 1px !important;
+}
+
+  
+
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label{
+    color: #25292d;
+    background-color:none;
+    display: inline-block;
+    padding: 60px 20px;
+    width: 150px;
+    height: 150px;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+  /*background-color:#f88335;*/
+}
+
+.inputfile + label {
+	cursor: pointer; /* "hand" cursor */
+}
+
+.inputfile:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+
+/****/
+
+
+.inputfile + img{
+    color: #25292d;
+    background-color:none;
+    display: inline-block;
+    padding: 60px 20px;
+    width: 150px;
+    height: 150px;
+}
+
+
+.inputfile + img {
+	cursor: pointer; /* "hand" cursor */
+}
+
+.inputfile:focus + img {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+
+
+.box {
+    width: 150px;
+    height: 150px;
+    border: 1px solid #a5a5a5;
+    float: left;
+    border-radius: 3px !important;
+
+}
+
+.box.fl {
+    margin: 10px 15px;
+}
+
+.box.fl.ul {
+    float: left;
+    clear: left;
+    margin: 10px 0;
+}
+
+label.etiqueta {
+    background: #ff6600cf;
+    color: white;
+    margin: -34px 0 -1px -3px;
+    z-index: 999999999999999999999;
+    position: absolute;
+    width: 152px;
+    padding: 0 44px;
+}
+
+
+.imgBox {
+    margin: -86px -22px;
+}

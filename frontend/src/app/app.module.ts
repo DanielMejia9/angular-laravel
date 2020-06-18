@@ -20,6 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthenticationService } from './services/authentication.service';
 import { ToSellComponent } from './components/to-sell/to-sell.component';
 import { NgxFileDropModule  } from 'ngx-file-drop';
+import {FilePickerModule} from 'ngx-awesome-uploader';
+
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
@@ -53,6 +55,7 @@ const routes: Routes = [
     MatButtonModule,
     HttpClientModule,
     NgxFileDropModule,
+    FilePickerModule,
   ],
   providers:[AuthenticationService],
   bootstrap: [AppComponent]

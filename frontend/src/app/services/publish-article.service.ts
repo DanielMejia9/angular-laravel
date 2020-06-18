@@ -16,16 +16,14 @@ export class PublishArticleService {
      'security-token': 'mytoken'
    })
 */
-   addImage(imagen: File ){
-    
+   addImage(imagen: File){
+
     const formData = new FormData()
     formData.append('name', imagen,)
+    return this.http.post(this.AUTH_SERVER +'addImages', formData);
     
-    console.log(formData)
-    this.http.post(this.AUTH_SERVER +'addImages', formData)
-   .subscribe(data => {
-     console.log(data)
-   })
+    
+
    }
    
    
