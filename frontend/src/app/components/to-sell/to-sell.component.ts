@@ -47,20 +47,14 @@ export class ToSellComponent implements OnInit {
   }
 
   uploadImages(value, id){
-    console.log(value,  id)
-
     this.publish.addImage(value[0])
     .subscribe(data => { 
-      //console.log(data)
       this.showImagen = data['url'];
       this.nameImagen = data['name'];
       this.btnFile = true;
       this.caja = false;
-      //this.arrayContenedor.push(this.showImagen);
-      //this.arrayName.push(this.nameImagen);
       this.arrayContenedor.splice(id, 1, this.showImagen);
       this.arrayName.splice(id, 1,this.nameImagen);
-     console.log(this.arrayContenedor)
     }, error => console.log('Error'));
   }
 

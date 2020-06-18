@@ -23,7 +23,7 @@
 }
 
 .inputfile + label{
-    color: #25292d;
+    color:#495057;
     background-color:none;
     display: inline-block;
     padding: 60px 20px;
@@ -71,14 +71,14 @@
 .box {
     width: 150px;
     height: 150px;
-    border: 1px solid #a5a5a5;
+    border: 1px solid #ced4da;
     float: left;
     border-radius: 3px !important;
 
 }
 
 .box.fl {
-    margin: 10px 15px;
+    margin: 10px 35px 10px 0;
 }
 
 .box.fl.ul {

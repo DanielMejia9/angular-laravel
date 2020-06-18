@@ -8,60 +8,168 @@
         <div class="row">
             <div class="col-md-4">
                 <label for="">Titulo*</label>
-                <input type="text" class="form-control" name="title" ngModel required>
+                <!--<input type="text" class="form-control" name="title" ngModel required>-->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fas fa-user"></i>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Tu nombre completo"
+                        aria-label="Username" name="title"  ngModel required aria-describedby="basic-addon1">
+                </div>
             </div>
             <div class="col-md-4">
                 <label for="">Precio*</label>
-                <input type="text" class="form-control" name="price" ngModel required>
+                <!-- <input type="text" class="form-control" name="price" ngModel required> -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fas fa-money-bill-alt"></i>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Precio del arriendo o vivienda"
+                        aria-label="Username" name="price"  ngModel required aria-describedby="basic-addon1">
+                </div>
             </div>
             <div class="col-md-4">
                 <label for="">Nombre del Arriendador*</label>
-                <input type="text" class="form-control" name="name_owner" ngModel required>
+                <!-- <input type="text" class="form-control" name="name_owner" ngModel required> -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fas fa-crown"></i>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Tu nombre completo"
+                        aria-label="Username" name="name_owner"  ngModel required aria-describedby="basic-addon1">
+                </div>
             </div>
         </div>
         <br>
         <div class="row">
             <div class="col-md-4">
                 <label for="">N° Telefónico*</label>
-                <input type="text" class="form-control" name="number_phone" ngModel required>
+                <!-- <input type="text" class="form-control" name="number_phone" ngModel required> -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fas fa-mobile"></i>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Tu número celular"
+                        aria-label="Username" name="number_phone"  ngModel required aria-describedby="basic-addon1">
+                </div>
             </div>
             <div class="col-md-4">
                 <label for="">N° Telefónico Opcional*</label>
-                <input type="text" class="form-control" name="number_phone_optional" ngModel required>
+                <!-- <input type="text" class="form-control" name="number_phone_optional" ngModel required> -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fas fa-mobile"></i>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Tu número celular"
+                        aria-label="Username" name="number_phone_optional"  ngModel required aria-describedby="basic-addon1">
+                </div>
             </div>
             <div class="col-md-4">
                 <label for="">Dirección*</label>
-                <input type="text" class="form-control" name="address" ngModel required>
+                <!-- <input type="text" class="form-control" name="address" ngModel required> -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="La dirección del inmueble"
+                        aria-label="Username" name="address"  ngModel required aria-describedby="basic-addon1">
+                </div>
             </div>
         </div>
         <br>
         <div class="row">
             <div class="col-md-4">
                 <label for="">Baños*</label>
-                <input type="number" class="form-control" name="bathroom" ngModel required>
+                <!-- <input type="number" class="form-control" name="bathroom" ngModel required> -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fas fa-toilet"></i>
+                        </span>
+                    </div>
+                    <input type="number" class="form-control" placeholder="Número de baños"
+                        aria-label="Username" name="bathroom"  ngModel required aria-describedby="basic-addon1">
+                </div>
             </div>
             <div class="col-md-4">
-                <label for="">Cuartos*</label>
-                <input type="number" class="form-control" name="bedroom" ngModel required>
+                <label for="">Habitaciones*</label>
+                <!-- <input type="number" class="form-control" name="bedroom" ngModel required> -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fas fa-person-booth"></i>
+                        </span>
+                    </div>
+                    <input type="number" class="form-control" placeholder="Número de habitaciones"
+                        aria-label="Username" name="bedroom"  ngModel required aria-describedby="basic-addon1">
+                </div>
             </div>
             <div class="col-md-4">
                 <label for="">Estacionamiento*</label>
-                <input type="number" class="form-control" name="parking" ngModel required>
+                <!-- <input type="number" class="form-control" name="parking" ngModel required> -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fas fa-parking"></i>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Número de Parking o Estacionamiento"
+                        aria-label="Username" name="parking"  ngModel required aria-describedby="basic-addon1">
+                </div>
             </div>
         </div>
         <br>
         <div class="row">
             <div class="col-md-4">
                 <label for="">Sala*</label>
-                <input type="number" class="form-control" name="room" ngModel required>
+                <!-- <input type="number" class="form-control" name="room" ngModel required> -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"> 
+                        <i class="fas fa-location-arrow"></i>
+                        </span>
+                    </div>
+                    <input type="number" class="form-control" placeholder="Número de Parking o Estacionamiento"
+                        aria-label="Username" name="room"  ngModel required aria-describedby="basic-addon1">
+                </div>
             </div>
             <div class="col-md-4">
                 <label for="">Cocina*</label>
-                <input type="number" class="form-control" name="kitchen" ngModel required>
+                <!-- <input type="number" class="form-control" name="kitchen" ngModel required> -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"> 
+                            <i class="fas fa-store"></i>
+                        </span>
+                    </div>
+                    <input type="number" class="form-control" placeholder="Número de Cocina"
+                        aria-label="Username" name="kitchen"  ngModel required aria-describedby="basic-addon1">
+                </div>
             </div>
             <div class="col-md-4">
                 <label for="">Comedor*</label>
-                <input type="number" class="form-control" name="dinning_room" ngModel required>
+                <!-- <input type="number" class="form-control" name="dinning_room" ngModel required> -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"> 
+                            <i class="fas fa-utensils"></i>
+                        </span>
+                    </div>
+                    <input type="number" class="form-control" placeholder="Número de Cocina"
+                        aria-label="Username" name="dinning_room"  ngModel required aria-describedby="basic-addon1">
+                </div>
             </div>
         </div>
         <br>
