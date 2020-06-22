@@ -9,6 +9,7 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 use Exception;
 
 
@@ -80,6 +81,7 @@ class JWTAuthController extends Controller
         else{
 
             $input = $request->only('email', 'password');
+            $user = DB::table('users')->where('email', $request->email)->first();
 
             if (! $token = JWTAuth::attempt($input)){
                 return response()->json([
@@ -91,6 +93,9 @@ class JWTAuthController extends Controller
                 return response()->json([
                     'success' => true,
                     'token' => $token,
+                    'id'  => $user->id,
+                    'name'=> $user->name
+
                 ]);
             }
         }

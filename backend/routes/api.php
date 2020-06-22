@@ -31,3 +31,16 @@ Route::group([
 
     
 });
+
+Route::group(['before' => 'auth'], function()
+{
+    Route::post('savePlaces', 'PlacesaveController@store'); 
+    Route::get('showPlaces', 'PlacesaveController@show');
+    Route::post('itemById', 'PlacesaveController@showItemId');
+    
+    //Location
+    Route::get('selectDepartamentos', 'LocationController@show');
+    Route::post('selectMunicipioByDep', 'LocationController@selectMunicipios');
+    Route::post('selectDepartamentosById', 'LocationController@selectDepartamentId');
+    Route::post('selectMunicipioById', 'LocationController@selectMunicipiosById');
+});

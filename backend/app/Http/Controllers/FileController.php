@@ -10,8 +10,9 @@ class FileController extends Controller
         
         $fileName = rand();
         $path = $request->file('name')->move(public_path("images/"), $fileName.'.jpg');
-        $photoURL = url('/'.$fileName);
-        return response()->json(['url' => $photoURL], 200);
+        $nameFile  =  $fileName.'.jpg';
+        $photoURL = url('images/'.$fileName.'.jpg');
+        return response()->json(['url' => $photoURL, 'name' => $nameFile], 200);
     }
 
 
