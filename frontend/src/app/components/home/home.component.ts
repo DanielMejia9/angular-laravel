@@ -1,5 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
+import { PublishArticleService } from '../../services/publish-article.service';
+import { LocationServicesService } from 'src/app/services/location-services.service';
 
 @Component({
   selector: 'app-home',
@@ -7,60 +9,65 @@ import { RouterModule, Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  Productos:any = [{
-    "id":"1",
-    "titulo":"Torta de Chocolate",
-    "description":"Some quick example text to build on the card title and make up the bulk of the card's content.",
-    "precio":"$25.000",
-    "img":"/assets/images/productos/1.jpg"
- },
- {
-    "id":"2",
-    "titulo":"Cesta basica",
-    "description":"Some quick example text to build on the card title and make up the bulk of the card's content.",
-    "precio":"5.00",
-    "img":"/assets/images/productos/retail-carrito-compra.jpg"
- },
- {
-    "id":"3",
-    "titulo":"Torta de Chocolate",
-    "description":"Some quick example text to build on the card title and make up the bulk of the card's content.",
-    "precio":"5.00",
-    "img":"/assets/images/productos/1.jpg"
- },
- {
-    "id":"4",
-    "titulo":"Torta de Chocolate",
-    "description":"Some quick example text to build on the card title and make up the bulk of the card's content.",
-    "precio":"5.00",
-    "img":"/assets/images/productos/1.jpg"
- },
- {
-    "id":"5",
-    "titulo":"Torta de Chocolate",
-    "description":"Some quick example text to build on the card title and make up the bulk of the card's content.",
-    "precio":"5.00",
-    "img":"/assets/images/productos/1.jpg"
- },
- {
-    "id":"6",
-    "titulo":"Torta de Chocolate",
-    "description":"Some quick example text to build on the card title and make up the bulk of the card's content.",
-    "precio":"5.00",
-    "img":"/assets/images/productos/1.jpg"
- }]
-
+   
+data:any;
   
+localidad:any = {
+  id_departamentos : 0,
+  id_municipios: 0,
+  id:0
+}
 
-  constructor(private router:Router) { }
+departamento:any;
+municipio:any;
+barrio:any;
+nombreLugar:any;
+
+  constructor(private router:Router,
+   private publish:PublishArticleService,
+   private location: LocationServicesService,
+   private publisharticle : PublishArticleService) { }
 
   ngOnInit() {
+   this.publish.listPlaces()
+   .subscribe(res=>{
+     
+      this.data = res['data']
+      console.log( this.data)
+   });
+
+   //Seteamos las variables en cero
+   
+
   }
 
-  idProduct(value){
-    this.router.navigate(['/productos/' + value]);
+  idProduct(dep,mun,id){
+    this.localidad.id_departamentos = dep;
+    this.localidad.id_municipios = mun;
+    this.localidad.id = id;
+    
 
-    console.log("Producto ID" + value)
+    this.location.selectDepartamentById(this.localidad)
+    .subscribe(dep=>{
+      this.departamento = 0;
+      this.departamento = dep['data'][0]['departamento'];
+
+      this.location.selectMunicipioById(this.localidad)
+      .subscribe(mun=>{
+        this.municipio = 0; 
+        this.municipio = mun['data']['nombre'];
+       
+       this.publisharticle.itemById(this.localidad)
+        .subscribe(data=>{
+           this.barrio = data['data']['location'];
+           this.nombreLugar = data['data']['title_places'];
+
+          this.router.navigate(['/ciudad/' +this.departamento.replace(/\s/g, '_') + '/' + this.municipio.replace(/\s/g, '_') +'/'+ this.barrio.replace(/\s/g, '_') ,this.nombreLugar.replace(/\s/g, '_'), id]);
+       
+        });
+      })
+    })
   }
 
+ 
 }

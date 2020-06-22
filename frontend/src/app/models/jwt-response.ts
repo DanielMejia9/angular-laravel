@@ -10,6 +10,8 @@ export interface JwtResponseI {
     }*/
     success: string;
     token:string;
+    id:string,
+    name:string;
 
 }
 

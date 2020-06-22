@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { PublishArticleService } from '../../services/publish-article.service'
+
 
 @Component({
   selector: 'app-views-products',
@@ -9,22 +11,27 @@ import { ActivatedRoute } from '@angular/router';
 export class ViewsProductsComponent implements OnInit {
   id: number;
   private sub: any;
+  item:any = {
+    id:0
+  };
+  Productos:any;
 
-  Productos:any = [{
-    "id":"1",
-    "titulo":"Torta de Chocolate",
-    "description":"Some quick example text to build on the card title and make up the bulk of the card's content.",
-    "precio":"$ 25.000,00",
-    "img":"/assets/images/productos/1.jpg"
- }]
-
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+    private publisharticle : PublishArticleService) { }
 
   ngOnInit() {
+   
     this.sub = this.route.params.subscribe(params => {
-      this.id = +params['id']; 
+      this.item.id = +params['id']; 
    });
-   console.log("ID del producto " + this.id);
+
+   this.publisharticle.itemById(this.item)
+   .subscribe(data=>{
+      this.Productos= data['data'];
+   });
+
+
+  
   }
 
 }

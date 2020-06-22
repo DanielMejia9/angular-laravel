@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ItemsI } from '../models/items'
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class PublishArticleService {
 
   AUTH_SERVER: string = "http://127.0.0.1:8000/api/auth/";
+  URL: string = "http://127.0.0.1:8000/api/";
   constructor(private http : HttpClient) { }
 
    // You could upload it like this:
@@ -25,6 +27,21 @@ export class PublishArticleService {
     
 
    }
+
+   savePlaces(data){
+    return this.http.post(this.URL +'savePlaces', data);
+
+   }
+
+   listPlaces(){
+    return this.http.get(this.URL +'showPlaces');
+   }
+
+   itemById(id){
+    return this.http.post(this.URL +'itemById', id);
+   }
+
+   
    
    
 }

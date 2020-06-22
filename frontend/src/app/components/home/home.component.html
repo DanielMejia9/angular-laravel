@@ -1,13 +1,14 @@
 <div class="container">
-    <div>
-        <h3>Destacados</h3>
     <div class="row">
-        <div class="card" style="width: 16rem;" *ngFor="let pro of Productos; index as i">
-            <a class="btn" (click)="idProduct(pro.id)">
-            <img src="{{pro.img}}" class="card-img-top" alt="...">
+        <div class="encabezado">
+            <h3>Destacados</h3>
+        </div>
+        <div class="card" style="width: 16rem;" *ngFor="let pro of data; index as i">
+            <a class="btn" (click)="idProduct(pro.departament,pro.municipality,pro.id)">
+            <img src="http://127.0.0.1:8000/images/{{pro.portada}}" class="card-img-top" alt="..." >
             <div class="card-body">
-                <h5 class="card-title">{{pro.precio}}</h5>
-                <p class="card-text">{{pro.titulo}}</p>
+                <h5 class="card-title">{{pro.price_places | currency}}</h5>
+                <p class="card-text">{{pro.title_places}}</p>
             </div>
             </a>
         </div>

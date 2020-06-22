@@ -13,6 +13,7 @@
     constructor(private router: Router, private authenticationService : AuthenticationService) { }
     hidden: boolean = false;
     btnHidden : boolean = true;
+    nameUser:any;
 
     login(){
       this.router.navigate(['/login']);
@@ -24,6 +25,9 @@
         this.hidden = true;
         this.btnHidden= false;
       }
+
+      this.nameUser = localStorage.getItem("name");
+      console.log(this.nameUser)
     }
 
     logout(){

@@ -5,7 +5,7 @@ ul.ulLineal li {
 }
 
 ul.ulLineal li i {
-    color: #ff6600;
+    color: #ffca11;
 }
 
 .input-group.mb-3.search {
@@ -17,6 +17,15 @@ button:focus {
 }
 
 .btn.btn-orange {
-    background: #ff6600;
+    background: #ffca11;
     color: rgb(255, 255, 255);
+}
+
+li.welcome {
+    margin: 10px;
+    padding: 0 10px;
+}
+
+.row._search {
+    margin-bottom: 50px;
 }

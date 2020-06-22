@@ -1,34 +1,46 @@
 <div class="container">
-<div class="row">
-    <div class="col-md-2 col-sm-12  text-center">
-        <a routerLink="home"><img src="/assets/images/logo.png"></a>
-    </div>
-    <div class="col-md-7 col-sm-12">
-        <form class="form-inline">
-            <div class="input-group mb-3 search">
-                <input type="text" class="form-control" placeholder="Que estás buscando?" aria-label="Recipient's username" aria-describedby="button-addon2">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
-                </div>
+    <div class="row">
+        <div class="col-md-2 col-sm-12  text-center " >
+            <a routerLink="/"><img src="/assets/images/logo.png" width="200"></a>
+        </div>
+        <div *ngIf="!nameUser" class="col-md-2 offset-md-8 col-sm-12 text-center">
+            <div class="iconosFuncionales">
+                <ul class="ulLineal">
+                    <li *ngIf="btnHidden">
+                        <button class="form-control form-control-lg btn btn-orange" mat-raised-button
+                            (click)="login()">Entrar</button>
+                    </li>
+                </ul>
             </div>
-        </form>
+        </div>
+        <div *ngIf="nameUser" class="col-md-5 offset-md-5 col-sm-12 text-center">
+            <div class="iconosFuncionales">
+                <ul class="ulLineal">
+                    <li class="welcome" *ngIf="hidden">
+                        <label for="">{{nameUser}}</label>
+                    </li>
+                    <li *ngIf="hidden">
+                        <button class="form-control form-control-lg btn btn-orange" mat-raised-button
+                            (click)="tosell()">Publicar</button>
+                    </li>
+                    <li *ngIf="hidden">
+                        <button mat-icon-button (click)="logout()"><i class="fas fa-door-open"></i></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <div class="col-md-3 col-sm-12 text-center">
-       <div class="iconosFuncionales">
-           <ul class="ulLineal">
-               <li *ngIf="btnHidden">
-                   <button class="form-control form-control-lg btn btn-orange" mat-raised-button (click)="login()" >Entrar</button>
-                </li>
-                <li *ngIf="hidden">
-                    <button class="form-control form-control-lg btn btn-orange" mat-raised-button (click)="tosell()" >Publicar</button>
-                 </li>
-               <li *ngIf="hidden">
-                <button mat-icon-button (click)="logout()" ><i class="fas fa-door-open"></i></button>
-             </li>
-           </ul>
-       </div>
+    <div class="row _search">
+        <div class="col-md-8 offset-md-2 col-sm-12">
+            <form class="form-inline">
+                <div class="input-group mb-3 search">
+                    <input type="text" class="form-control" placeholder="Que estás buscando?"
+                        aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
-</div>
-          
-       

@@ -21,14 +21,13 @@ import { AuthenticationService } from './services/authentication.service';
 import { ToSellComponent } from './components/to-sell/to-sell.component';
 import { NgxFileDropModule  } from 'ngx-file-drop';
 import {FilePickerModule} from 'ngx-awesome-uploader';
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent},
   { path: '', component: HomeComponent },
-  { path: 'productos/:id', component: ViewsProductsComponent, canActivate: [AuthenticationGuard] },
+  { path: 'ciudad/:dep/:mun/:loc/:name/:id', component: ViewsProductsComponent },
   { path: 'login', component: LoginComponent},
-  { path: 'vender', component: ToSellComponent},
+  { path: 'vender', component: ToSellComponent, canActivate: [AuthenticationGuard]},
 ];
 
 @NgModule({
@@ -56,6 +55,7 @@ const routes: Routes = [
     HttpClientModule,
     NgxFileDropModule,
     FilePickerModule,
+    MatProgressSpinnerModule
   ],
   providers:[AuthenticationService],
   bootstrap: [AppComponent]

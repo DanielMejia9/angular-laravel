@@ -1,6 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    color:#2e3133;
+
+}
+
+.detail {
+    margin: 11px 0;
+}
+
+div.ico {
+    float: left;
+    width: 37px;
+}
+i.fas.fa-mobile,i.fas.fa-map-marker-alt {
+    margin-left: 5px;
+}
+
 a.btn.btn-orange {
-    background: #ff6600;
+    background: #ffca11;
     color: white;
 }
 html, body { height: 100%; }
@@ -12,5 +29,23 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
-    background-color: #ff6600 !important;
+    background-color: #ffca11 !important;
+}
+
+
+.encabezado {
+    float: left;
+    clear: right;
+    position: absolute;
+}
+
+.mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #ffca11;
+}
+
+.container-fluid.footer {
+    margin: 200px 0 0 0;
+    background: #0f170f;
+    color: white;
+    height: 200px;
 }
