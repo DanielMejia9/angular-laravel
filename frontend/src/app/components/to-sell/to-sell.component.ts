@@ -31,12 +31,23 @@ export class ToSellComponent implements OnInit {
     { id: 3, name: "imagen3" },
     { id: 4, name: "imagen4" },
     { id: 5, name: "imagen5" },
+    { id: 6, name: "imagen6" },
+    { id: 7, name: "imagen7" },
+    { id: 8, name: "imagen8" },
+    { id: 9, name: "imagen9" },
+    { id: 10,name: "imagen10" },
+    { id: 11,name: "imagen11" }
 
   ];
   departamentos: any;
   muni: any = {
     id_departamentos: 0
   };
+
+  image:any = {
+    id:0,
+    img:0,
+  }
 
   municipios: any;
   showSpinner: boolean = true;
@@ -54,20 +65,28 @@ export class ToSellComponent implements OnInit {
       .subscribe(data => {
         this.showSpinner = false;
         this.departamentos = data['data'];
-        console.log(this.departamentos);
-
       });
   }
 
 
   onSubmit(form) {
-    //let adapter = new DemoFilePickerAdapter(this.http);
-    console.log(form.value);
-    //console.log(adapter)
-
     this.publish.savePlaces(form.value)
       .subscribe(data => {
-        console.log(data)
+        this.image.id = data['id'];
+        
+        let i = 0;
+        for(i=0; i<11; i++){
+          
+          if(form.value['imagen'+i] != null){
+            this.image.img  = form.value['imagen'+i];
+            /** Guardamos el nombre de las imagenes en la bd*/
+            console.log(this.image);
+            this.publish.saveImg(this.image)
+            .subscribe(data => {
+            }, error => console.log('Error'));
+           /** */
+          }
+        }
       }, error => console.log('Error'));
   }
 

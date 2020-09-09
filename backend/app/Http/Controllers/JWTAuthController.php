@@ -149,4 +149,25 @@ class JWTAuthController extends Controller
             'expires_in' => auth()->factory()->getTTL() * 60
         ]);*/
     }
+
+    public function userById(Request $request)
+    {
+         //Consultamos 
+         try{
+            $user = Db::table('users')->where('id', $request->id)->first();
+            return response()->json([
+                'success' => true,
+                'data' => $user,
+            ]);
+        } 
+        catch(Exception $e){
+            return response()->json([
+                'success'   =>  false,
+                'data'      =>  "Error"
+            ], 404);
+        }
+
+    }
+
+
 }

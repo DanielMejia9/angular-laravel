@@ -28,7 +28,8 @@ Route::group([
     Route::get('profile', 'JWTAuthController@profile');
 
     Route::post('addImages', 'FileController@addImages');
-
+    //usuarios
+    Route::post('userById', 'JWTAuthController@userById');
     
 });
 
@@ -38,9 +39,14 @@ Route::group(['before' => 'auth'], function()
     Route::get('showPlaces', 'PlacesaveController@show');
     Route::post('itemById', 'PlacesaveController@showItemId');
     
+    Route::post('saveImagen', 'ImagenesController@store'); 
+    Route::post('imgById', 'ImagenesController@showImgId');
+
     //Location
     Route::get('selectDepartamentos', 'LocationController@show');
     Route::post('selectMunicipioByDep', 'LocationController@selectMunicipios');
     Route::post('selectDepartamentosById', 'LocationController@selectDepartamentId');
     Route::post('selectMunicipioById', 'LocationController@selectMunicipiosById');
+
+   
 });

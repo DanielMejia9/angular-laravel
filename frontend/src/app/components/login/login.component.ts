@@ -10,8 +10,11 @@ import { FormGroup, FormControl } from '@angular/forms';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
 
+
+export class LoginComponent implements OnInit {
+  errorLoging:boolean = false;
+  errorRegistro:boolean = false;
 
   imageChangedEvent: any = '';
     croppedImage: any = '';
@@ -44,13 +47,17 @@ export class LoginComponent implements OnInit {
         //this.router.navigateByUrl('/');
         window.location.href = "/"
       },
-      err => console.log(err),);
+      err => {
+        this.errorLoging = true;
+      });
   }
 
   onRegister(form):void{ 
     if(form.value.password == form.value.password_confirmation){
     this.authService.register(form.value).subscribe(res=>{
       this.router.navigateByUrl('/');
+    },err =>{
+      this.errorRegistro = true;
     });
   }
   }

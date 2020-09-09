@@ -37,12 +37,14 @@ class PlacesaveController extends Controller
      */
     public function store(Request $request)
     {
+
         $places = new Placesave();
         $places->title_places = $request->title;
         $places->price_places = $request->price;
         $places->owner_places = $request->name_owner;
         $places->number_phone_places = $request->number_phone;
         $places->number_phone_optional_places = $request->number_phone_optional;
+        $places->type_operation = $request->type_operation;
         $places->address_places = $request->address;
         $places->departament = $request->departament;
         $places->municipality = $request->municipality;
@@ -54,25 +56,23 @@ class PlacesaveController extends Controller
         $places->kitchen_places = $request->kitchen;
         $places->dining_table_places = $request->dinning_room;
         $places->portada = $request->portada;
-        $places->imagen1 = $request->imagen1;
-        $places->imagen2 = $request->imagen2;
-        $places->imagen3 = $request->imagen3;
-        $places->imagen4 = $request->imagen4;
-        $places->imagen5 = $request->imagen5;
-        $places->id_user =   $request->idUser;
-        $places->type_places = '1';
+        $places->id_user = $request->idUser;
+        $places->type_places = '0';
         $places->save();
+
         return response()->json([
             'success'   =>  true,
-            'data'      =>  $places
+            'data'      =>  $places,
+            'id'        =>  $places->id,
         ], 200);
+
     }
 
     public function show(Placesave $placesave)
     {
         //Consultamos 
         try{
-            $places = DB::table('placesaves')->get();
+            $places = DB::table('placesaves')->where('type_places','=', 1)->get();
             return response()->json([
                 'success' => true,
                 'data' => $places,
@@ -102,11 +102,6 @@ class PlacesaveController extends Controller
                 'data'      =>  "Error"
             ], 404);
         }
-
-
-        
-
-        
         
     }
 

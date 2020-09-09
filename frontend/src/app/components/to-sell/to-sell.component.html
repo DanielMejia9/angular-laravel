@@ -23,7 +23,7 @@
                             <i class="fas fa-user"></i>
                         </span>
                     </div>
-                    <input type="text" class="form-control" placeholder="Tu nombre completo" aria-label="Username"
+                    <input type="text" class="form-control" placeholder="Apartamento o Casa en ..." aria-label="Username"
                         name="title" ngModel required aria-describedby="basic-addon1">
                 </div>
             </div>
@@ -69,7 +69,7 @@
                         name="number_phone" ngModel required aria-describedby="basic-addon1">
                 </div>
             </div>
-            <div class="col-md-4 offset-md-4">
+            <div class="col-md-4">
                 <label for="">N° Telefónico Opcional*</label>
                 <!-- <input type="text" class="form-control" name="number_phone_optional" ngModel required> -->
                 <div class="input-group mb-3">
@@ -83,7 +83,13 @@
                 </div>
             </div>
             <div class="col-md-4">
-
+                <label for="">Venta o Arriendo*</label>
+                <select class="custom-select" name="type_operation"  id="type_operation" ngModel required>
+                    <option value="0">Seleccione...</option>
+                    <option value="1">Venta</option>
+                    <option value="2">Arriendo</option>
+                    <option value="3">Arriendo Vacacional</option>
+                </select>
             </div>
         </div>
         <br>

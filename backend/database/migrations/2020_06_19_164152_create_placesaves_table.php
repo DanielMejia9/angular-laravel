@@ -20,6 +20,7 @@ class CreatePlacesavesTable extends Migration
             $table->string('owner_places');
             $table->string('number_phone_places');
             $table->string('number_phone_optional_places');
+            $table->string('type_operation');
             $table->string('address_places');
             $table->string('departament');
             $table->string('municipality');
@@ -31,11 +32,6 @@ class CreatePlacesavesTable extends Migration
             $table->integer('kitchen_places');
             $table->integer('dining_table_places');
             $table->string('portada');
-            $table->string('imagen1')->nullable();
-            $table->string('imagen2')->nullable();
-            $table->string('imagen3')->nullable();
-            $table->string('imagen4')->nullable();
-            $table->string('imagen5')->nullable();
             $table->integer('id_user');
             $table->integer('type_places');
             $table->timestamp('created_at')->nullable();

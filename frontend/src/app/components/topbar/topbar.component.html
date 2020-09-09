@@ -1,37 +1,9 @@
-<div class="container">
+<div class="container topbar">
     <div class="row">
-        <div class="col-md-2 col-sm-12  text-center " >
+        <div class="col-md-2 col-sm-12  text-center ">
             <a routerLink="/"><img src="/assets/images/logo.png" width="200"></a>
         </div>
-        <div *ngIf="!nameUser" class="col-md-2 offset-md-8 col-sm-12 text-center">
-            <div class="iconosFuncionales">
-                <ul class="ulLineal">
-                    <li *ngIf="btnHidden">
-                        <button class="form-control form-control-lg btn btn-orange" mat-raised-button
-                            (click)="login()">Entrar</button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div *ngIf="nameUser" class="col-md-5 offset-md-5 col-sm-12 text-center">
-            <div class="iconosFuncionales">
-                <ul class="ulLineal">
-                    <li class="welcome" *ngIf="hidden">
-                        <label for="">{{nameUser}}</label>
-                    </li>
-                    <li *ngIf="hidden">
-                        <button class="form-control form-control-lg btn btn-orange" mat-raised-button
-                            (click)="tosell()">Publicar</button>
-                    </li>
-                    <li *ngIf="hidden">
-                        <button mat-icon-button (click)="logout()"><i class="fas fa-door-open"></i></button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="row _search">
-        <div class="col-md-8 offset-md-2 col-sm-12">
+        <div class="col-md-8 col-sm-12">
             <form class="form-inline">
                 <div class="input-group mb-3 search">
                     <input type="text" class="form-control" placeholder="Que estás buscando?"
@@ -42,5 +14,22 @@
                 </div>
             </form>
         </div>
+        <div *ngIf="!nameUser" class="col-md-2 col-sm-12 text-center">
+            <div class="iconosFuncionales">
+                <ul class="ulLineal">
+                    <li *ngIf="btnHidden">
+                        <button class="form-control form-control-lg btn btn-orange" mat-raised-button
+                            (click)="login()">Entrar</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div *ngIf="nameUser" class="col-md-2 col-sm-12 text-center">
+            <button class="form-control form-control-lg btn btn-orange menu" mat-raised-button [matMenuTriggerFor]="beforeMenu">Menu</button>
+            <mat-menu #beforeMenu="matMenu" xPosition="before">
+                <!--<button mat-menu-item routerLink="micuenta">Mi cuenta</button>-->
+                <button mat-menu-item (click)="tosell()">Publicar</button>
+                <button mat-menu-item (click)="logout()">Salir</button>
+            </mat-menu>
+        </div>
     </div>
-</div>

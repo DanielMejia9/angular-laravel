@@ -22,12 +22,18 @@ import { ToSellComponent } from './components/to-sell/to-sell.component';
 import { NgxFileDropModule  } from 'ngx-file-drop';
 import {FilePickerModule} from 'ngx-awesome-uploader';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { FilterComponent } from './components/filter/filter.component';
+import {MatInputModule} from '@angular/material/input';
+import { SliderComponent } from './components/slider/slider.component';
+import {MatMenuModule} from '@angular/material/menu';
+import { MyAccountComponent } from './components/my-account/my-account.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'ciudad/:dep/:mun/:loc/:name/:id', component: ViewsProductsComponent },
   { path: 'login', component: LoginComponent},
-  { path: 'vender', component: ToSellComponent, canActivate: [AuthenticationGuard]},
+  { path: 'vender', component: ToSellComponent, canActivate: [AuthenticationGuard]}, 
+  { path: 'micuenta', component: MyAccountComponent, canActivate: [AuthenticationGuard]},
 ];
 
 @NgModule({
@@ -40,6 +46,9 @@ const routes: Routes = [
     ViewsProductsComponent,
     LoginComponent,
     ToSellComponent,
+    FilterComponent,
+    SliderComponent,
+    MyAccountComponent,
 
   ],
     
@@ -55,7 +64,9 @@ const routes: Routes = [
     HttpClientModule,
     NgxFileDropModule,
     FilePickerModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatInputModule,
+    MatMenuModule
   ],
   providers:[AuthenticationService],
   bootstrap: [AppComponent]

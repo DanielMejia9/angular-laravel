@@ -33,12 +33,21 @@ export class PublishArticleService {
 
    }
 
+   saveImg(data){
+    return this.http.post(this.URL +'saveImagen', data);
+
+   }
+
    listPlaces(){
     return this.http.get(this.URL +'showPlaces');
    }
 
    itemById(id){
     return this.http.post(this.URL +'itemById', id);
+   }
+
+   imgById(id){
+    return this.http.post(this.URL +'imgById', id);
    }
 
    

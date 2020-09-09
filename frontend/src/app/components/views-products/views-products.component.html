@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-                <img src="http://127.0.0.1:8000/images/{{Productos.portada}}" class="card-img-top" alt="...">
+            <img src="http://127.0.0.1:8000/images/{{Productos.portada}}" class="card-img-top" alt="...">
         </div>
         <div class="col-md-8">
             <div>
@@ -9,26 +9,27 @@
             </div>
             <div class="detail"><div class="ico"><i class="fas fa-money-bill-alt"></i></div>Precio:  {{Productos.price_places | currency}}</div>
             <div class="detail"><div class="ico"><i class="fas fa-crown"></i></div>  Nombre del Arrendador: {{Productos.owner_places}}</div>
-            <div class="detail"><div class="ico">  <i class="fas fa-mobile"></i></div>  Número Telefónico:  {{Productos.number_phone_places}}</div>
-            <div class="detail"><div class="ico">  <i class="fas fa-mobile"></i></div>   Número Telefónico: {{Productos.number_phone_optional_places}}</div>
-            <div class="detail"><div class="ico">  <i class="fas fa-map-marker-alt"></i></div>  Dirección:  {{Productos.address_places}}</div>
+            <div class="detail"><div class="ico"><i class="fas fa-mobile"></i></div>  Número Telefónico:  {{Productos.number_phone_places}}</div>
+            <div class="detail"><div class="ico"><i class="fas fa-mobile"></i></div>   Número Telefónico: {{Productos.number_phone_optional_places}}</div>
+            <div class="detail"><div class="ico"><i class="fas fa-map-marker-alt"></i></div>  Dirección:  {{Productos.address_places}}</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div *ngFor="let im of imagen">
+                <img src="http://127.0.0.1:8000/images/{{im.imagen}}" class="flImg" width="60px" alt="...">
+            </div>
+        </div>
+        <div class="col-md-8">
         </div>
     </div>
     <br><br><br>
     <div class="row">
-        <div class="col-md-2">
-            <div class="detail"><span class="ico"><i class="fas fa-toilet"></i></span>  Baños: {{Productos.bathroom_places}}</div>
-        </div>
+        <div class="col-md-2"><div class="detail"><span class="ico"><i class="fas fa-toilet"></i></span>  Baños: {{Productos.bathroom_places}}</div></div>
         <div class="col-md-2"><div class="detail"><span class="ico"><i class="fas fa-person-booth"></i></span>  Habitaciones: {{Productos.bedroom_places}}</div></div>
         <div class="col-md-2"><div class="detail"><span class="ico"><i class="fas fa-parking"></i></span> Estacionamiento:  {{Productos.parking_places}}</div></div>
         <div class="col-md-2"><div class="detail"><span class="ico"><i class="fas fa-location-arrow"></i></span>   Sala: {{Productos.room_places}}</div></div>
         <div class="col-md-2"><div class="detail"><span class="ico"><i class="fas fa-store"></i></span>  Cocina: {{Productos.kitchen_places}}</div></div>
         <div class="col-md-2"><div class="detail"><span class="ico"><i class="fas fa-utensils"></i></span>  Comedor:  {{Productos.dining_table_places}}</div></div>
-        
-        
-        
-        
-        
-        
     </div>
 </div>

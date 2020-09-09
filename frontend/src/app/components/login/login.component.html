@@ -1,9 +1,9 @@
 <div class="container">
     <div class="row">
         <div class="col-md-7">
-                <mat-tab-group mat-align-tabs="center" animationDuration="0ms">
-                    <mat-tab label="Crear Cuenta" >
-                        <form #frmRegister="ngForm" >
+            <mat-tab-group mat-align-tabs="center" animationDuration="0ms">
+                <mat-tab label="Crear Cuenta">
+                    <form #frmRegister="ngForm">
                         <br><br>
                         <div class="form-group row">
                             <div class="col-sm-10">
@@ -14,7 +14,8 @@
                                         </span>
                                     </div>
                                     <input type="text" class="form-control" placeholder="Tu nombre completo"
-                                        aria-label="Username" name="name"  ngModel required aria-describedby="basic-addon1">
+                                        aria-label="Username" name="name" ngModel required
+                                        aria-describedby="basic-addon1">
                                 </div>
                             </div>
                         </div>
@@ -27,7 +28,8 @@
                                         </span>
                                     </div>
                                     <input type="text" class="form-control" placeholder="Tu email o usuario"
-                                        aria-label="Username" name="email"  ngModel required aria-describedby="basic-addon1">
+                                        aria-label="Username" name="email" ngModel required
+                                        aria-describedby="basic-addon1">
                                 </div>
                             </div>
                         </div>
@@ -39,7 +41,8 @@
                                                 class="fas fa-key"></i></span>
                                     </div>
                                     <input type="password" class="form-control" placeholder="Tu contraseña"
-                                        aria-label="Username" name="password"  ngModel required aria-describedby="basic-addon1">
+                                        aria-label="Username" name="password" ngModel required
+                                        aria-describedby="basic-addon1">
                                 </div>
                             </div>
                         </div>
@@ -51,20 +54,30 @@
                                                 class="fas fa-key"></i></span>
                                     </div>
                                     <input type="password" class="form-control" placeholder="Confirma tu contraseña"
-                                        aria-label="Username" name="password_confirmation"  ngModel required aria-describedby="basic-addon1">
+                                        aria-label="Username" name="password_confirmation" ngModel required
+                                        aria-describedby="basic-addon1">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-10">
-                                <button type="button" mat-raised-button class="form-control form-control-lg btn btn-orange" (click)="onRegister(frmRegister)" >Crear cuenta</button>
+                                <div *ngIf="errorRegistro" class="alert alert-danger" role="alert">
+                                   Ocurrió un error, por favor verifique sus datos
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <button type="button" mat-raised-button
+                                    class="form-control form-control-lg btn btn-orange"
+                                    (click)="onRegister(frmRegister)">Crear cuenta</button>
                             </div>
                         </div>
                     </form>
-                    </mat-tab>
-                    <mat-tab label=" Ingresar">
-                        <br><br>
-                        <form #frmLogin="ngForm">
+                </mat-tab>
+                <mat-tab label=" Ingresar">
+                    <br><br>
+                    <form #frmLogin="ngForm">
                         <div class="form-group row">
                             <div class="col-sm-10">
                                 <div class="input-group mb-3">
@@ -74,7 +87,8 @@
                                         </span>
                                     </div>
                                     <input type="text" class="form-control" placeholder="Tu email o usuario"
-                                        aria-label="Username" name="email"  ngModel required aria-describedby="basic-addon1">
+                                        aria-label="Username" name="email" ngModel required
+                                        aria-describedby="basic-addon1">
                                 </div>
                             </div>
                         </div>
@@ -86,20 +100,29 @@
                                                 class="fas fa-key"></i></span>
                                     </div>
                                     <input type="password" class="form-control" placeholder="Tu contraseña"
-                                        aria-label="Username" name="password"  ngModel required aria-describedby="basic-addon1">
+                                        aria-label="Username" name="password" ngModel required
+                                        aria-describedby="basic-addon1">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-10">
-                               <button mat-raised-button class="form-control form-control-lg btn btn-orange" (click)="onLogin(frmLogin)" >Ingresar</button>
+                                <div *ngIf="errorLoging" class="alert alert-danger" role="alert">
+                                   Verifique su email y contraseña
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <button mat-raised-button class="form-control form-control-lg btn btn-orange"
+                                    (click)="onLogin(frmLogin)">Ingresar</button>
                             </div>
                         </div>
                     </form>
-                    </mat-tab>
-                </mat-tab-group>
+                </mat-tab>
+            </mat-tab-group>
 
-                <!--                 <input type="file" (change)="fileChangeEvent($event)" />
+            <!--                 <input type="file" (change)="fileChangeEvent($event)" />
 
 <image-cropper
     [imageChangedEvent]="imageChangedEvent"
@@ -120,4 +143,3 @@
 
     </div>
 </div>
-

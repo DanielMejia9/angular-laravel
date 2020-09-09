@@ -15,6 +15,7 @@ export class ViewsProductsComponent implements OnInit {
     id:0
   };
   Productos:any;
+  imagen:any;
 
   constructor(private route: ActivatedRoute,
     private publisharticle : PublishArticleService) { }
@@ -28,10 +29,12 @@ export class ViewsProductsComponent implements OnInit {
    this.publisharticle.itemById(this.item)
    .subscribe(data=>{
       this.Productos= data['data'];
-   });
-
-
-  
+        this.publisharticle.imgById(this.item)
+        .subscribe(img=>{
+          this.imagen = img['data']
+          console.log(this.imagen)
+        });
+   }); 
   }
 
 }

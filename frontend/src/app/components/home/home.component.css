@@ -9,3 +9,10 @@ a.btn.btn-orange[_ngcontent-vot-c5] {
 .card {
     margin: 46px 26px 2px 2px ;
 }
+
+.card._l  {
+    float: left;
+    padding: 0px;
+    margin: 6px;
+    height: 279px;
+}

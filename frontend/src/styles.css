@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-body{
+body,p,a {
     color:#2e3133;
+    font-size: 0.733333rem;
 
 }
 
@@ -44,8 +45,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .container-fluid.footer {
-    margin: 200px 0 0 0;
-    background: #0f170f;
+    margin-top: 100px;
+    background: #000000;
     color: white;
-    height: 200px;
 }

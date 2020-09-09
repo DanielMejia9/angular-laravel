@@ -1,0 +1,121 @@
+<div class="container">
+    <div class="row">
+        <div class=" offset-md-4 col-md-4">
+            <mat-spinner *ngIf="showSpinner"></mat-spinner>
+        </div>
+    </div>
+</div>
+
+<div class="container" *ngIf="!showSpinner">
+    <br><br>
+    <div class="row">
+        <h1 class="mx-auto"><span>Mis datos personales</span></h1>
+    </div>
+    <br><br>
+    <form #frmMidatos="ngForm" (ngSubmit)="onSubmit(frmMidatos)">
+        <div class="row">
+            <div class="col-md-4">
+                <label for="">Nombres*</label>
+                <!--<input type="text" class="form-control" name="title" ngModel required>-->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fas fa-user"></i>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Tu nombre completo" aria-label="Username"
+                        name="title" ngModel required aria-describedby="basic-addon1">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="">Edad</label>
+                <!-- <input type="text" class="form-control" name="price" ngModel required> -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fas fa-heartbeat"></i>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Mi edad actual"
+                        aria-label="Username" name="price" ngModel required aria-describedby="basic-addon1">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="">N° Telefónico*</label>
+                <!-- <input type="text" class="form-control" name="number_phone" ngModel required> -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fas fa-mobile"></i>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Tu número celular" aria-label="Username"
+                        name="number_phone" ngModel required aria-describedby="basic-addon1">
+                </div>
+            </div>
+            
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-4">
+                <label for="">N° Telefónico Opcional*</label>
+                <!-- <input type="text" class="form-control" name="number_phone_optional" ngModel required> -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fas fa-mobile"></i>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Tu número celular" aria-label="Username"
+                        name="number_phone_optional" ngModel required aria-describedby="basic-addon1">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="">Tipo de Documuento</label>
+                <select class="custom-select" name="type_operation"  id="type_operation" ngModel required>
+                    <option value="0">Seleccione...</option>
+                    <option value="1">Cédula Ciudadanía</option>
+                    <option value="2">Cédula Extranjería</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="">Número de Documuento*</label>
+                <!-- <input type="text" class="form-control" name="name_owner" ngModel required> -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fas fa-address-card"></i>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Numero de identidad" aria-label="Username"
+                        name="name_owner" ngModel required aria-describedby="basic-addon1">
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <label for="">Dirección*</label>
+                <!-- <input type="text" class="form-control" name="address" ngModel required> -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="La dirección de residencia"
+                        aria-label="Username" name="address" ngModel required aria-describedby="basic-addon1">
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-md-4 offset-md-4">
+                <button mat-raised-button class="form-control form-control-lg btn btn-orange"
+                    type="submit">Guardar</button>
+            </div>
+        </div>
+    </form>
+
+</div>
