@@ -40,4 +40,6 @@
     tosell(){
       this.router.navigateByUrl('vender');
     }
+
+    images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/2150/300`);
   }

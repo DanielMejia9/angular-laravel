@@ -1,35 +1,105 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
-            <img src="http://127.0.0.1:8000/images/{{Productos.portada}}" class="card-img-top" alt="...">
+        <div class=" offset-md-5 col-md-4">
+            <mat-spinner *ngIf="showSpinner"></mat-spinner>
         </div>
-        <div class="col-md-8">
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <a (click)="open(content)"><img src="https://apis.arriendoen.com/images/{{portada.imagen}}" width="350px"
+                    height="350px" class="card-img-top" alt="..."></a>
+        </div>
+        <div class="col-md-7">
             <div>
                 <h5 class="">{{Productos.title_places}}</h5>
             </div>
-            <div class="detail"><div class="ico"><i class="fas fa-money-bill-alt"></i></div>Precio:  {{Productos.price_places | currency}}</div>
-            <div class="detail"><div class="ico"><i class="fas fa-crown"></i></div>  Nombre del Arrendador: {{Productos.owner_places}}</div>
-            <div class="detail"><div class="ico"><i class="fas fa-mobile"></i></div>  Número Telefónico:  {{Productos.number_phone_places}}</div>
-            <div class="detail"><div class="ico"><i class="fas fa-mobile"></i></div>   Número Telefónico: {{Productos.number_phone_optional_places}}</div>
-            <div class="detail"><div class="ico"><i class="fas fa-map-marker-alt"></i></div>  Dirección:  {{Productos.address_places}}</div>
+            <div class="detail">
+                <div class="ico"><i class="fas fa-money-bill-alt"></i></div>Precio:
+                {{Productos.price_places | currency}}
+            </div>
+            <div class="detail">
+                <div class="ico"><i class="fas fa-crown"></i></div> Nombre del Arrendador: {{Productos.owner_places}}
+            </div>
+            <div class="detail">
+                <div class="ico"><i class="fas fa-mobile"></i></div> Número Telefónico:
+                {{Productos.number_phone_places}}
+            </div>
+            <div class="detail">
+                <div class="ico"><i class="fas fa-mobile"></i></div> Número Telefónico:
+                {{Productos.number_phone_optional_places}}
+            </div>
+            <div class="detail">
+                <div class="ico"><i class="fas fa-map-marker-alt"></i></div> Dirección: {{Productos.address_places}}
+            </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-5">
             <div *ngFor="let im of imagen">
-                <img src="http://127.0.0.1:8000/images/{{im.imagen}}" class="flImg" width="60px" alt="...">
+                <a (click)="open(content)"><img src="https://apis.arriendoen.com/images/{{im.imagen}}" class="flImg"
+                        width="60px" alt="..."></a>
             </div>
         </div>
         <div class="col-md-8">
         </div>
     </div>
     <br><br><br>
-    <div class="row">
-        <div class="col-md-2"><div class="detail"><span class="ico"><i class="fas fa-toilet"></i></span>  Baños: {{Productos.bathroom_places}}</div></div>
-        <div class="col-md-2"><div class="detail"><span class="ico"><i class="fas fa-person-booth"></i></span>  Habitaciones: {{Productos.bedroom_places}}</div></div>
-        <div class="col-md-2"><div class="detail"><span class="ico"><i class="fas fa-parking"></i></span> Estacionamiento:  {{Productos.parking_places}}</div></div>
-        <div class="col-md-2"><div class="detail"><span class="ico"><i class="fas fa-location-arrow"></i></span>   Sala: {{Productos.room_places}}</div></div>
-        <div class="col-md-2"><div class="detail"><span class="ico"><i class="fas fa-store"></i></span>  Cocina: {{Productos.kitchen_places}}</div></div>
-        <div class="col-md-2"><div class="detail"><span class="ico"><i class="fas fa-utensils"></i></span>  Comedor:  {{Productos.dining_table_places}}</div></div>
+</div>
+<div class="container-fluid footer yellow">
+    <div class="container">
+        <div class="row yellow">
+            <div class="col-md-2 col-sm-4">
+                <div class="detail"><span class="ico"><i class="fas fa-toilet"></i></span> Baños:
+                    {{Productos.bathroom_places}}</div>
+            </div>
+            <div class="col-md-2 col-sm-4">
+                <div class="detail"><span class="ico"><i class="fas fa-person-booth"></i></span> Habitaciones:
+                    {{Productos.bedroom_places}}</div>
+            </div>
+            <div class="col-md-2 col-sm-4">
+                <div class="detail"><span class="ico"><i class="fas fa-parking"></i></span> Estacionamiento:
+                    {{Productos.parking_places}}</div>
+            </div>
+            <div class="col-md-2  col-sm-4">
+                <div class="detail"><span class="ico"><i class="fas fa-location-arrow"></i></span> Sala:
+                    {{Productos.room_places}}</div>
+            </div>
+            <div class="col-md-2  col-sm-4">
+                <div class="detail"><span class="ico"><i class="fas fa-store"></i></span> Cocina:
+                    {{Productos.kitchen_places}}</div>
+            </div>
+            <div class="col-md-2  col-sm-4">
+                <div class="detail"><span class="ico"><i class="fas fa-utensils"></i></span> Comedor:
+                    {{Productos.dining_table_places}}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class=".col-md-6 .offset-md-3">
+                
+            </div>
+        </div>
+        <ng-template #content let-modal>
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">Arriendoen.com</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <ngb-carousel [showNavigationArrows]="showNavigationArrows"
+                    [showNavigationIndicators]="showNavigationIndicators">
+                    <ng-template ngbSlide *ngFor="let im of imagen">
+                        <div class="picsum-img-wrapper">
+                            <img src="https://apis.arriendoen.com/images/{{im.imagen}}" width="800px" alt="...">
+                        </div>
+                    </ng-template>
+                </ngb-carousel>
+
+            </div>
+        </ng-template>
     </div>
+
 </div>

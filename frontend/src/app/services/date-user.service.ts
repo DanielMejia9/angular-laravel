@@ -5,8 +5,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DateUserService {
-  URL: string = "http://127.0.0.1:8000/api/auth/";
- 
+  //URL: string = "http://127.0.0.1:8000/api/auth/";
+  URL: string = "https://apis.arriendoen.com/api/auth";
   constructor(private http : HttpClient) { }
 
   selectUserById(id){

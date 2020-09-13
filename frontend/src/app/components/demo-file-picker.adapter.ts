@@ -12,7 +12,9 @@ export class DemoFilePickerAdapter extends FilePickerAdapter {
     console.log(fileItem)
     const form = new FormData();
     form.append('name', fileItem.file);
-    const api = 'http://127.0.0.1:8000/api/auth/addImages';
+    //const api = 'http://127.0.0.1:8000/api/auth/addImages';
+    const api = 'https://apis.arriendoen.com/api/auth/addImages';
+    
     const req = new HttpRequest('POST', api, form);
     console.log(req);
     return this.http.request(req)

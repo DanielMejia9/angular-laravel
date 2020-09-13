@@ -7,7 +7,8 @@ import { HttpClient } from '@angular/common/http';
 
 
 export class LocationServicesService {
-  URL: string = "http://127.0.0.1:8000/api/";
+  //URL: string = "http://127.0.0.1:8000/api/";
+  URL: string = "https://apis.arriendoen.com/api/";
 
   constructor(private http : HttpClient) { }
 

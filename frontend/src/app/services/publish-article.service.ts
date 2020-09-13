@@ -7,8 +7,11 @@ import { ItemsI } from '../models/items'
 })
 export class PublishArticleService {
 
-  AUTH_SERVER: string = "http://127.0.0.1:8000/api/auth/";
-  URL: string = "http://127.0.0.1:8000/api/";
+  //AUTH_SERVER: string = "http://127.0.0.1:8000/api/auth/";
+  //URL: string = "http://127.0.0.1:8000/api/";
+
+  AUTH_SERVER: string = "https://apis.arriendoen.com/api/auth/";
+  URL: string = "https://apis.arriendoen.com/api/";
   constructor(private http : HttpClient) { }
 
    // You could upload it like this:

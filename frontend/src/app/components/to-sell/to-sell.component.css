@@ -81,11 +81,22 @@
     margin: 10px 35px 10px 0;
 }
 
-.box.fl.ul {
-    float: left;
-    clear: left;
-    margin: 10px 0;
+.box.fl {
+    margin: 11px 34px 10px 20px;
 }
+
+@media (max-width: 320px) {
+    .box.fl.ul {
+        float: left;
+        clear: left;
+        margin: 10px 0;
+    }
+    
+    .box.fl.ng-star-inserted {
+        margin: 10px 4.9em;
+    }
+}
+
 
 label.etiqueta {
     background: #ffca11;

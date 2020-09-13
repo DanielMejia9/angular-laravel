@@ -3,6 +3,18 @@ import { RouterModule, Router } from '@angular/router';
 import { PublishArticleService } from '../../services/publish-article.service';
 import { LocationServicesService } from 'src/app/services/location-services.service';
 
+
+interface Food {
+  value: string;
+  viewValue: string;
+}
+
+interface Car {
+  value: string;
+  viewValue: string;
+}
+
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -11,13 +23,14 @@ import { LocationServicesService } from 'src/app/services/location-services.serv
 export class HomeComponent implements OnInit {
    
 data:any;
-  
+showSpinner:boolean = true;
 localidad:any = {
   id_departamentos : 0,
   id_municipios: 0,
   id:0
 }
-
+tipo:any;
+color:any;
 departamento:any;
 municipio:any;
 barrio:any;
@@ -31,9 +44,22 @@ nombreLugar:any;
   ngOnInit() {
    this.publish.listPlaces()
    .subscribe(res=>{
-     
+      this.showSpinner = false;
       this.data = res['data']
-      console.log( this.data)
+      
+      if(this.data['type_operation'] == 1){
+        this.tipo = "Venta"
+        this.color = "rgb(244, 67, 54)"
+      }
+      if(this.data['type_operation'] == 2){
+        this.tipo = "Arriendo"
+        this.color = "rgb(255, 160, 0)"
+      }
+      else{
+        this.tipo = "Vacacional"
+        this.color = "rgb(30, 136, 229)"
+      }
+
    });
 
    //Seteamos las variables en cero
@@ -69,5 +95,16 @@ nombreLugar:any;
     })
   }
 
+
+  selectedValue: string;
+  selectedCar: string;
+
+  foods: Food[] = [
+    {value: 'steak-0', viewValue: 'Bogotá'},
+  ];
+
+  cars: Car[] = [
+    {value: 'volvo', viewValue: 'Bogotá'},
+  ];
  
 }

@@ -9,7 +9,9 @@
 <div class="container" *ngIf="!showSpinner">
     <br><br>
     <div class="row">
-        <h1 class="mx-auto"><span>Publica tu anuncio</span></h1>
+        <div class="col-md-12 col-12">
+            <h1 class="mx-auto text-center"><span>Publica tu anuncio</span></h1>
+        </div>
     </div>
     <br><br>
     <form #frmPublicar="ngForm" (ngSubmit)="onSubmit(frmPublicar)">
@@ -86,9 +88,9 @@
                 <label for="">Venta o Arriendo*</label>
                 <select class="custom-select" name="type_operation"  id="type_operation" ngModel required>
                     <option value="0">Seleccione...</option>
-                    <option value="1">Venta</option>
-                    <option value="2">Arriendo</option>
-                    <option value="3">Arriendo Vacacional</option>
+                    <option value="Venta">Venta</option>
+                    <option value="Arriendo">Arriendo</option>
+                    <option value="Arriendo Vacacional">Arriendo Vacacional</option>
                 </select>
             </div>
         </div>
@@ -246,7 +248,7 @@
         </div>
         <br>
         <div class="row">
-            <div class="col-md-4 offset-md-4">
+            <div class="col-md-4 offset-md-4 col-sm-12">
                 <input type="hidden" name="idUser" [ngModel]="id">
                 <button mat-raised-button class="form-control form-control-lg btn btn-orange"
                     type="submit">Publicar</button>
@@ -255,3 +257,4 @@
     </form>
 
 </div>
+<br><br><br><br>

@@ -1,35 +1,55 @@
+<div class="container-fliud yellow">
+    <div class="container yellow top">
+        <div class="row textHeader">
+            <div class="col-sm-6 col-12">
+                <span class="span">
+                    <i class="fas fa-phone-alt"></i>
+                    (+57)300 4525218
+                </span>
+                <span class="divisor"></span>
+
+                <span class="span">
+                    <i class="fas fa-envelope"></i>
+                    info@arriendoen.com
+                </span>
+                <span class="divisor"></span>
+                <span class="span">
+                    <span class="social"><i class="fab fa-facebook-square"></i></span>
+                    <span class="social"><i class="fab fa-instagram-square"></i></span>
+                    <span class="social"><i class="fab fa-linkedin"></i></span>
+                </span>
+
+                <span class="divisor"></span>
+            </div>
+            <div class="col-sm-3 col-12">
+
+            </div>
+
+            <div class="col-sm-3 col-12 text-rigth" *ngIf="!nameUser">
+                <span class="span right">
+                    <button class="btnWithoutBorder" (click)="login()"><i class="fas fa-user"></i> Entrar</button>
+                </span>
+            </div>
+            <div class="col-sm-3 col-12 text-rigth" *ngIf="nameUser">
+                <span class="span right">
+                    <button class="btnWithoutBorder" (click)="logout()"><i class="fas fa-door-open"></i> Cerrar sesión</button>
+                </span>
+                <span class="span right">
+                    <button class="btnWithoutBorder" (click)="tosell()"><i class="fas fa-home"></i> Publicar</button>
+                </span>
+                
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container topbar">
     <div class="row">
         <div class="col-md-2 col-sm-12  text-center ">
             <a routerLink="/"><img src="/assets/images/logo.png" width="200"></a>
         </div>
         <div class="col-md-8 col-sm-12">
-            <form class="form-inline">
-                <div class="input-group mb-3 search">
-                    <input type="text" class="form-control" placeholder="Que estás buscando?"
-                        aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
-                    </div>
-                </div>
-            </form>
+
         </div>
-        <div *ngIf="!nameUser" class="col-md-2 col-sm-12 text-center">
-            <div class="iconosFuncionales">
-                <ul class="ulLineal">
-                    <li *ngIf="btnHidden">
-                        <button class="form-control form-control-lg btn btn-orange" mat-raised-button
-                            (click)="login()">Entrar</button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div *ngIf="nameUser" class="col-md-2 col-sm-12 text-center">
-            <button class="form-control form-control-lg btn btn-orange menu" mat-raised-button [matMenuTriggerFor]="beforeMenu">Menu</button>
-            <mat-menu #beforeMenu="matMenu" xPosition="before">
-                <!--<button mat-menu-item routerLink="micuenta">Mi cuenta</button>-->
-                <button mat-menu-item (click)="tosell()">Publicar</button>
-                <button mat-menu-item (click)="logout()">Salir</button>
-            </mat-menu>
-        </div>
+
     </div>
+</div>

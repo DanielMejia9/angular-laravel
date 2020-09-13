@@ -27,6 +27,13 @@ import {MatInputModule} from '@angular/material/input';
 import { SliderComponent } from './components/slider/slider.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { MyAccountComponent } from './components/my-account/my-account.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import { BannerComponent } from './components/banner/banner.component';
+import {MatSelectModule} from '@angular/material/select';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -49,6 +56,7 @@ const routes: Routes = [
     FilterComponent,
     SliderComponent,
     MyAccountComponent,
+    BannerComponent,
 
   ],
     
@@ -66,7 +74,13 @@ const routes: Routes = [
     FilePickerModule,
     MatProgressSpinnerModule,
     MatInputModule,
-    MatMenuModule
+    MatToolbarModule,
+    MatMenuModule,
+    MatIconModule,
+    MatSelectModule,
+    NgbModule,
+    NgbPaginationModule, NgbAlertModule
+    
   ],
   providers:[AuthenticationService],
   bootstrap: [AppComponent]

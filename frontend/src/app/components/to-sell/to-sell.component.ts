@@ -25,7 +25,7 @@ export class ToSellComponent implements OnInit {
   arrayName: any = [];
   id: any;
   items: any[] = [
-    { id: 0, name: "portada" },
+    { id: 0, name: "imagen0" },
     { id: 1, name: "imagen1" },
     { id: 2, name: "imagen2" },
     { id: 3, name: "imagen3" },
@@ -83,6 +83,8 @@ export class ToSellComponent implements OnInit {
             console.log(this.image);
             this.publish.saveImg(this.image)
             .subscribe(data => {
+              //this.router.navigateByUrl('/');
+              window.location.href = "/"
             }, error => console.log('Error'));
            /** */
           }

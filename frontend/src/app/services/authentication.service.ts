@@ -10,7 +10,8 @@ import { RegisterI } from '../models/register';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  AUTH_SERVER: string = "http://127.0.0.1:8000/api/auth";
+  //AUTH_SERVER: string = "http://127.0.0.1:8000/api/auth";
+  AUTH_SERVER: string = "https://apis.arriendoen.com/api/auth";
   autSubject = new BehaviorSubject(false);
 
   private token : string;

@@ -1,18 +1,84 @@
+<app-banner></app-banner>
 <div class="container">
     <div class="row">
-        <!-- <div class="encabezado">
-            <h3>Destacados</h3>
-        </div> 
-        <app-filter></app-filter>-->
+        <div class="filter">
+            <div class="row">
+                <div class="col-3">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Departamento</mat-label>
+                        <mat-select [(ngModel)]="selectedValue" name="food">
+                            <mat-option *ngFor="let food of foods" [value]="food.value">
+                                {{food.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-3">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Ciudad</mat-label>
+                        <mat-select [(ngModel)]="selectedValue" name="food">
+                            <mat-option *ngFor="let food of foods" [value]="food.value">
+                                {{food.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-3">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Precio mínimo</mat-label>
+                        <input matInput placeholder="Ej. $100.000" value="">
+                    </mat-form-field>
+                </div>
+                <div class="col-3">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Precio máximo</mat-label>
+                        <input matInput placeholder="Ej. $40.000.000" value="">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <button mat-raised-button class="form-control form-control-lg btn btn-orange"
+                        type="submit">Filtrar</button>
+
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="row"> 
+    <div class="row">
         <div class="col-md-12">
-            <div class="card _l" style="width: 16rem;" *ngFor="let pro of data; index as i">
+            <div class="  _l " style="width: 256px;" *ngFor="let pro of data; index as i">
                 <a class="btn" (click)="idProduct(pro.departament,pro.municipality,pro.id)">
-                    <img src="http://127.0.0.1:8000/images/{{pro.portada}}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{pro.price_places | currency}}</h5>
-                        <p class="card-text">{{pro.title_places}}</p>
+                    <span *ngIf="pro.type_operation == 'Venta'" class="etiqueta" style="background:rgb(244, 67, 54);">{{pro.type_operation}}</span>
+                    <span *ngIf="pro.type_operation == 'Arriendo'" class="etiqueta" style="background:rgb(255, 160, 0);">{{pro.type_operation}}</span>
+                    <span *ngIf="pro.type_operation == 'Vacacional'" class="etiqueta" style="background:rgb(30, 136, 229);">{{pro.type_operation}}</span>
+                    <img src="http://apis.arriendoen.com/images/{{pro.imagen0}}" width="256px" height="156" class="imagenP"
+                        alt="...">
+                    <div class="carta">
+                        <h5 class="card-title">{{pro.title_places}}</h5>
+                        
+                        <p><i class="fas fa-map-marker-alt"></i> {{pro.address_places}}</p>
+                        <p class="precio">{{pro.price_places | currency}}</p>
+                        
+
+                        <p class="descrip">
+                          <span class="detailProp">Piezas</span>
+                          <span class="detail">{{pro.bedroom_places}}</span>
+                        </p>
+
+                        <p class="descrip">
+                          <span class="detailProp">Baños</span>
+                          <span class="detail">{{pro.bathroom_places}}</span>
+                        </p>
+
+                        <p class="descrip">
+                          <span class="detailProp">Cocina</span>
+                          <span class="detail">{{pro.kitchen_places}}</span>
+                        </p>
+
+                        <p class="">
+                            <button class="form-control form-control-lg btn btn-detail" (click)="idProduct(pro.departament,pro.municipality,pro.id)">Ver detalle</button>
+                        </p>
                     </div>
                 </a>
             </div>
@@ -20,3 +86,12 @@
 
     </div>
 </div>
+<div class="container">
+    <div class="row text-center">
+        <div class=" offset-md-5 col-md-4  col-12">
+            <mat-spinner *ngIf="showSpinner"></mat-spinner>
+        </div>
+    </div>
+</div>
+
+<br><br><br>

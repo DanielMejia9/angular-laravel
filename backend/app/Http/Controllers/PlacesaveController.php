@@ -55,7 +55,7 @@ class PlacesaveController extends Controller
         $places->room_places = $request->room;
         $places->kitchen_places = $request->kitchen;
         $places->dining_table_places = $request->dinning_room;
-        $places->portada = $request->portada;
+        $places->imagen0 = $request->imagen0;
         $places->id_user = $request->idUser;
         $places->type_places = '0';
         $places->save();

@@ -1,8 +1,12 @@
 .footer-copyright.text-center.py-3 {
-    background: black;
+    background:  #232323;
     color: white;
 }
 
 a{
     color: white;
+}
+
+.padding {
+    padding: 20px !important;
 }

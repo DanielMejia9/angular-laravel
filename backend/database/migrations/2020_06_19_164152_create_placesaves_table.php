@@ -31,7 +31,7 @@ class CreatePlacesavesTable extends Migration
             $table->integer('room_places');
             $table->integer('kitchen_places');
             $table->integer('dining_table_places');
-            $table->string('portada');
+            $table->string('imagen0');
             $table->integer('id_user');
             $table->integer('type_places');
             $table->timestamp('created_at')->nullable();

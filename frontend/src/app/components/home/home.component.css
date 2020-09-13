@@ -10,9 +10,28 @@ a.btn.btn-orange[_ngcontent-vot-c5] {
     margin: 46px 26px 2px 2px ;
 }
 
-.card._l  {
+._l  {
     float: left;
     padding: 0px;
     margin: 6px;
-    height: 279px;
+    height: 550px;
 }
+
+img.card-img-top {
+    width: 229px !important;
+    height: 260px !important;
+}
+
+@media (max-width: 320px) {
+    .card._l  {
+        float: left;
+        padding: 0px;
+        margin: 6px 11px;
+        height: 382px;
+    }
+
+    mat-spinner.mat-spinner.mat-progress-spinner.mat-primary.mat-progress-spinner-indeterminate-animation.ng-star-inserted {
+        margin: 6.8em auto;
+    }
+}
+
