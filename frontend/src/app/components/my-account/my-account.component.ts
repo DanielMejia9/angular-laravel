@@ -17,11 +17,11 @@ showSpinner:boolean = true;
 
   ngOnInit(): void {
     this.user.id = localStorage.getItem("id");
-    console.log(this.user.id)
+
 
     this.datauser.selectUserById(this.user.id)
     .subscribe(data=>{
-      console.log(data)
+
       this.showSpinner = false;
     })
 

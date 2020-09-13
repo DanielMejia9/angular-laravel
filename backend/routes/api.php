@@ -38,6 +38,7 @@ Route::group(['before' => 'auth'], function()
     Route::post('savePlaces', 'PlacesaveController@store'); 
     Route::get('showPlaces', 'PlacesaveController@show');
     Route::post('itemById', 'PlacesaveController@showItemId');
+    Route::post('filterPlaces', 'PlacesaveController@filPlaces');
     
     Route::post('saveImagen', 'ImagenesController@store'); 
     Route::post('imgById', 'ImagenesController@showImgId');

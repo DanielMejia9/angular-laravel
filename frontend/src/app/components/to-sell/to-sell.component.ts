@@ -80,7 +80,7 @@ export class ToSellComponent implements OnInit {
           if(form.value['imagen'+i] != null){
             this.image.img  = form.value['imagen'+i];
             /** Guardamos el nombre de las imagenes en la bd*/
-            console.log(this.image);
+  
             this.publish.saveImg(this.image)
             .subscribe(data => {
               //this.router.navigateByUrl('/');

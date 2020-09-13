@@ -27,7 +27,7 @@
       }
 
       this.nameUser = localStorage.getItem("name");
-      console.log(this.nameUser)
+
     }
 
     logout(){

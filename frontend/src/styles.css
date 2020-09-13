@@ -63,6 +63,48 @@ list-style: none
     }
 }
 
+@media (max-width: 600px) {
+
+    .mat-form-field {
+        width: 145px;
+    }
+    
+    .filter {
+        height: 245px !important;
+        margin: 13px !important;
+    }
+
+    a.btn.ng-star-inserted {
+        width: 334px !important;
+    }
+
+    img.imagenP {
+        width: 308px !important;
+    }
+
+    .hide-sm {
+        display: none;
+    }
+
+    ._l {
+        float: left;
+        padding: 0px !important;
+        margin: 6px !important;
+        height: 491px !important;
+        width: 332px !important;
+    }
+
+    .form-group {
+        margin-left: 0rem !important;
+    }
+
+    img.img-fluid.portadaLogin {
+        display: none;
+    }
+}
+
+
+
 .yellow {
     background: #ffca11;
 }

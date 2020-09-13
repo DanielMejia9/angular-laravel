@@ -81,9 +81,6 @@
     margin: 10px 35px 10px 0;
 }
 
-.box.fl {
-    margin: 11px 34px 10px 20px;
-}
 
 @media (max-width: 320px) {
     .box.fl.ul {

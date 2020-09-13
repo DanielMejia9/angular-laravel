@@ -1,7 +1,7 @@
 <div class="container-fliud yellow">
     <div class="container yellow top">
         <div class="row textHeader">
-            <div class="col-sm-6 col-12">
+            <div class="col-md-6 col-4 text-device hide-sm">
                 <span class="span">
                     <i class="fas fa-phone-alt"></i>
                     (+57)300 4525218
@@ -21,16 +21,16 @@
 
                 <span class="divisor"></span>
             </div>
-            <div class="col-sm-3 col-12">
+            <div class="col-md-3 col-4 text-device">
 
             </div>
 
-            <div class="col-sm-3 col-12 text-rigth" *ngIf="!nameUser">
+            <div class="col-md-3 col-12 text-rigth text-device" *ngIf="!nameUser">
                 <span class="span right">
                     <button class="btnWithoutBorder" (click)="login()"><i class="fas fa-user"></i> Entrar</button>
                 </span>
             </div>
-            <div class="col-sm-3 col-12 text-rigth" *ngIf="nameUser">
+            <div class="col-sm-3 col-12 text-rigth text-device" *ngIf="nameUser">
                 <span class="span right">
                     <button class="btnWithoutBorder" (click)="logout()"><i class="fas fa-door-open"></i> Cerrar sesión</button>
                 </span>

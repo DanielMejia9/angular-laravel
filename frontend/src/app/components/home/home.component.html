@@ -2,53 +2,55 @@
 <div class="container">
     <div class="row">
         <div class="filter">
+            <form #frmFiltrar="ngForm" (ngSubmit)="onSubmit(frmFiltrar)">
             <div class="row">
-                <div class="col-3">
+                <div class="col-6 col-md-3">
                     <mat-form-field appearance="outline">
                         <mat-label>Departamento</mat-label>
-                        <mat-select [(ngModel)]="selectedValue" name="food">
-                            <mat-option *ngFor="let food of foods" [value]="food.value">
-                                {{food.viewValue}}
+                        <mat-select (selectionChange)="selectCiudad(deptmento)" [(ngModel)]="deptmento" name="deptmento">
+                            <mat-option *ngFor="let depa of departamentos" [value]="depa.id_departamentos">
+                                {{depa.departamento}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>
-                <div class="col-3">
+                <div class="col-6 col-md-3">
                     <mat-form-field appearance="outline">
-                        <mat-label>Ciudad</mat-label>
-                        <mat-select [(ngModel)]="selectedValue" name="food">
-                            <mat-option *ngFor="let food of foods" [value]="food.value">
-                                {{food.viewValue}}
+                        <mat-label>Ciudad ó Localidad</mat-label>
+                        <mat-select name="municipality" ngModel>
+                            <mat-option *ngFor="let muni of municipios" [value]="muni.id_municipios">
+                                {{muni.nombre}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>
-                <div class="col-3">
+                <div class="col-6 col-md-3">
                     <mat-form-field class="example-full-width" appearance="outline">
                         <mat-label>Precio mínimo</mat-label>
-                        <input matInput placeholder="Ej. $100.000" value="">
+                        <input matInput placeholder="Ej. $100.000" name="minimo" ngModel>
                     </mat-form-field>
                 </div>
-                <div class="col-3">
+                <div class="col-6 col-md-3">
                     <mat-form-field class="example-full-width" appearance="outline">
                         <mat-label>Precio máximo</mat-label>
-                        <input matInput placeholder="Ej. $40.000.000" value="">
+                        <input matInput placeholder="Ej. $40.000.000" name="maximo" ngModel>
                     </mat-form-field>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6 offset-md-3">
+                <div class="col-md-6 col-12 offset-md-3">
                     <button mat-raised-button class="form-control form-control-lg btn btn-orange"
                         type="submit">Filtrar</button>
 
                 </div>
             </div>
+            </form>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
             <div class="  _l " style="width: 256px;" *ngFor="let pro of data; index as i">
-                <a class="btn" (click)="idProduct(pro.departament,pro.municipality,pro.id)">
+                <a *ngIf="pro" class="btn" (click)="idProduct(pro.departament,pro.municipality,pro.id)">
                     <span *ngIf="pro.type_operation == 'Venta'" class="etiqueta" style="background:rgb(244, 67, 54);">{{pro.type_operation}}</span>
                     <span *ngIf="pro.type_operation == 'Arriendo'" class="etiqueta" style="background:rgb(255, 160, 0);">{{pro.type_operation}}</span>
                     <span *ngIf="pro.type_operation == 'Vacacional'" class="etiqueta" style="background:rgb(30, 136, 229);">{{pro.type_operation}}</span>
@@ -82,6 +84,7 @@
                     </div>
                 </a>
             </div>
+            <p *ngIf="alert">No se encontraron registro en la busqueda</p>
         </div>
 
     </div>

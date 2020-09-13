@@ -53,6 +53,11 @@ export class PublishArticleService {
     return this.http.post(this.URL +'imgById', id);
    }
 
+   filterPlaces(data){
+    return this.http.post(this.URL +'filterPlaces', data);
+
+   }
+
    
    
    

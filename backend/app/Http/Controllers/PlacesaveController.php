@@ -105,6 +105,88 @@ class PlacesaveController extends Controller
         
     }
 
+    public function filPlaces(Request $request)
+    {
+       
+
+        $departamento = $request->deptmento;
+        $municipio = $request->municipality;
+        $minimo = $request->minimo;
+        $maximo = $request->maximo;
+        
+
+
+        try{
+
+            if($departamento > 0 && $municipio == Null && $minimo == Null && $maximo == Null){
+                 $places = DB::table('placesaves')->where('departament','=', $departamento)->get();
+                 return response()->json([
+                     'success' => true,
+                     'data' => $places,
+                 ]);
+             }
+
+            elseif($departamento > 0 && $municipio > 0 && $minimo == Null && $maximo == Null){
+                $places = DB::table('placesaves')->where('departament','=', $departamento)->where('municipality','=',$municipio)->get();
+
+                return response()->json([
+                    'success' => true,
+                    'data' => $places,
+                ]);
+            }
+            elseif($departamento > 0 && $municipio > 0 && $minimo > 0 && $maximo == Null){
+                $places = DB::table('placesaves')->where('departament','=', $departamento)->where('municipality','=',$municipio)
+                ->where('price_places','>=',$minimo)->get();
+
+                return response()->json([
+                    'success' => true,
+                    'data' => $places,
+                ]);
+            }
+            elseif($departamento == Null && $municipio == NULL && $minimo > 0 && $maximo == Null){
+                $places = DB::table('placesaves')->where('price_places','>=',$minimo)->get();
+
+                return response()->json([
+                    'success' => true,
+                    'data' => $places,
+                ]);
+            }
+            elseif($departamento == Null && $municipio == Null && $minimo > 0 && $maximo > 0){
+                $places = DB::table('placesaves')->where('price_places','>=',$minimo)->where('price_places','<=',$maximo)->get();
+
+                return response()->json([
+                    'success' => true,
+                    'data' => $places,
+                ]);
+            }
+            elseif($departamento == Null && $municipio == Null && $minimo == Null && $maximo == Null){
+                $places = DB::table('placesaves')->get();
+
+                return response()->json([
+                    'success' => true,
+                    'data' => $places,
+                ]);
+            }
+            else{
+                $places = DB::table('placesaves')->where('departament','=', $departamento)->where('municipality','=',$municipio)
+                ->where('price_places','>=',$minimo)->where('price_places','<=',$maximo)->get();
+
+                return response()->json([
+                    'success' => true,
+                    'data' => $places,
+                ]);
+            }
+            
+        } 
+        catch(Exception $e){
+            return response()->json([
+                'success'   =>  false,
+                'data'      =>  "Error"
+            ], 404);
+        }
+        
+    }
+
 
 
     public function edit(Placesave $placesave)

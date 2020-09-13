@@ -4,26 +4,20 @@ import { PublishArticleService } from '../../services/publish-article.service';
 import { LocationServicesService } from 'src/app/services/location-services.service';
 
 
-interface Food {
-  value: string;
-  viewValue: string;
-}
-
-interface Car {
-  value: string;
-  viewValue: string;
-}
-
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-   
+deptmento;   
 data:any;
 showSpinner:boolean = true;
+departamentos: any;
+  muni: any = {
+    id_departamentos: 0
+  };
+
 localidad:any = {
   id_departamentos : 0,
   id_municipios: 0,
@@ -35,6 +29,8 @@ departamento:any;
 municipio:any;
 barrio:any;
 nombreLugar:any;
+municipios: any;
+alert:boolean= false;
 
   constructor(private router:Router,
    private publish:PublishArticleService,
@@ -62,9 +58,11 @@ nombreLugar:any;
 
    });
 
-   //Seteamos las variables en cero
-   
-
+   this.location.selectDepartament()
+   .subscribe(data => {
+     this.showSpinner = false;
+     this.departamentos = data['data'];
+   });
   }
 
   idProduct(dep,mun,id){
@@ -95,16 +93,24 @@ nombreLugar:any;
     })
   }
 
+  selectCiudad(id_depa){
+    this.muni.id_departamentos = id_depa;
+    this.location.selectMunicipio(this.muni)
+    .subscribe(data => {
+      this.municipios = data['data'];
+    })
+  }
 
-  selectedValue: string;
-  selectedCar: string;
-
-  foods: Food[] = [
-    {value: 'steak-0', viewValue: 'Bogotá'},
-  ];
-
-  cars: Car[] = [
-    {value: 'volvo', viewValue: 'Bogotá'},
-  ];
- 
+  onSubmit(form) {
+    this.publish.filterPlaces(form.value)
+      .subscribe(data => {
+        this.data = data['data']
+        if(this.data.length == 0){
+          this.alert = true;
+        }
+        else{
+          this.alert = false;
+        }
+       })
+      }
 }
