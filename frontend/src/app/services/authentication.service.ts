@@ -11,7 +11,7 @@ import { RegisterI } from '../models/register';
 })
 export class AuthenticationService {
   //AUTH_SERVER: string = "http://127.0.0.1:8000/api/auth";
-  AUTH_SERVER: string = "http://backarriendo.arriendoen.com/api/auth";
+  AUTH_SERVER: string = "https://backarriendo.arriendoen.com/api/auth";
   autSubject = new BehaviorSubject(false);
 
   private token : string;

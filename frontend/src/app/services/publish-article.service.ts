@@ -10,8 +10,8 @@ export class PublishArticleService {
   //AUTH_SERVER: string = "http://127.0.0.1:8000/api/auth/";
   //URL: string = "http://127.0.0.1:8000/api/";
 
-  AUTH_SERVER: string = "http://backarriendo.arriendoen.com/api/auth/";
-  URL: string = "http://backarriendo.arriendoen.com/api/";
+  AUTH_SERVER: string = "https://backarriendo.arriendoen.com/api/auth/";
+  URL: string = "https://backarriendo.arriendoen.com/api/";
   constructor(private http : HttpClient) { }
 
    // You could upload it like this:
