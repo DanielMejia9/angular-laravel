@@ -84,7 +84,7 @@ export class ToSellComponent implements OnInit {
             this.publish.saveImg(this.image)
             .subscribe(data => {
               //this.router.navigateByUrl('/');
-              window.location.href = "/"
+              //window.location.href = "/"
             }, error => console.log('Error'));
            /** */
           }

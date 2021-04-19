@@ -10,8 +10,8 @@ export class PublishArticleService {
   //AUTH_SERVER: string = "http://127.0.0.1:8000/api/auth/";
   //URL: string = "http://127.0.0.1:8000/api/";
 
-  AUTH_SERVER: string = "https://apis.arriendoen.com/api/auth/";
-  URL: string = "https://apis.arriendoen.com/api/";
+  AUTH_SERVER: string = "http://backarriendo.arriendoen.com/api/auth/";
+  URL: string = "http://backarriendo.arriendoen.com/api/";
   constructor(private http : HttpClient) { }
 
    // You could upload it like this:
@@ -22,7 +22,6 @@ export class PublishArticleService {
    })
 */
    addImage(imagen: File){
-
     const formData = new FormData()
     formData.append('name', imagen,)
     return this.http.post(this.AUTH_SERVER +'addImages', formData);
@@ -32,11 +31,13 @@ export class PublishArticleService {
    }
 
    savePlaces(data){
+    console.log(data)
     return this.http.post(this.URL +'savePlaces', data);
 
    }
 
    saveImg(data){
+    console.log(data)
     return this.http.post(this.URL +'saveImagen', data);
 
    }
